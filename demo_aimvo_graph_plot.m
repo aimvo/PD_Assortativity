@@ -17,7 +17,7 @@
 %
 %   Brain Connectivity Toolbox
 %   https://sites.google.com/site/bctnet/
-%   path1 = '/home/annguyen/Documents/Software/BCT/2017_01_15_BCT/';
+%   path1 = '/home/annguyen/Documents/Software/BCT/2019_03_03_BCT/';
 %   addpath(path1);
 
 NodeName = importdata('Node_ID_PDRP_PDCP.xlsx');
@@ -30,8 +30,8 @@ nodeID = NodeName.data.PDCP_blue;
 load('demo_AdM.mat')
 V = AdM(nodeID,nodeID); 
 thr = 0.3; 
-WU=abs(threshold_absolute(V,thr));  
-BU=WU; BU(BU>0)=1;
+WU = threshold_absolute(abs(V),thr);  
+BU = WU; BU(BU>0) = 1;
 tic
 aimvo_graph_plot(BU,NodeLabel)
 toc
